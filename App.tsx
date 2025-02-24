@@ -1,50 +1,19 @@
-import { ScrollView, StatusBar, StyleSheet, Text, View, useColorScheme } from 'react-native';
-
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import AppNavigator from './src/navigation/AppNavigator';
+import { NavigationContainer } from '@react-navigation/native';
+import { PaperProvider } from 'react-native-paper';
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  const safePadding = '5%';
-
+const App = () => {
   return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{ paddingRight: safePadding }}>
-          <Text style={styles.highlight} >Hello</Text>
-        </View>
-      </ScrollView>
-    </View>
+    <SafeAreaProvider>
+      <PaperProvider>
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
+      </PaperProvider>
+    </SafeAreaProvider>
   );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+};
 
 export default App;
