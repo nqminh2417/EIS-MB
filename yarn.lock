@@ -4197,6 +4197,7 @@ __metadata:
     react: 19.0.0
     react-native: 0.78.0
     react-native-gesture-handler: ^2.24.0
+    react-native-mmkv: ^3.2.0
     react-native-paper: ^5.13.1
     react-native-safe-area-context: ^5.2.0
     react-native-screens: ^4.9.0
@@ -7933,6 +7934,16 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 65abaeef68180fee2811d01d88ff50c231a91faca05279222fcaaa55349e758b68a7d6a9ac3eddfb1887f6b4c4790ac195b99989f1ad8a2a1f3f3bdff3ba0a76
+  languageName: node
+  linkType: hard
+
+"react-native-mmkv@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "react-native-mmkv@npm:3.2.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 766944a7cbf265e27b57576e51bff8604cd8f58c88eaec78bd93d4ce10ff9127d5f75f4c3bb03d6c7ce5dafa07c65e233d5363c0504db802cc88eaf1ccbffaa1
   languageName: node
   linkType: hard
 
