@@ -1,26 +1,24 @@
-import LoginScreen from '../screens/LoginScreen';
+import GlobalStatusTabs from '../screens/ProductionStatus/GlobalStatusTabs';
+import LoginScreen from '../screens/Auth/LoginScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { ROUTES } from './routes';
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export type RootStackParamList = {
-    Login: undefined;
-    Details: { itemId: number; otherParam?: string };
-};
-
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
     return (
-        <Stack.Navigator
-            initialRouteName="Login"
-            screenOptions={{ headerShown: false }}
-        >
-            <Stack.Screen
-                name="Login"
-                component={LoginScreen}
-            // options={{ title: 'Trang đăng nhập' }}
-            />
-        </Stack.Navigator>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName={ROUTES.LOGIN} screenOptions={{ headerShown: false }}>
+                <Stack.Screen
+                    name={ROUTES.LOGIN}
+                    component={LoginScreen}
+                // options={{ title: 'Trang đăng nhập' }}
+                />
+                <Stack.Screen name={ROUTES.GLOBAL_STATUS_TABS} component={GlobalStatusTabs} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
 

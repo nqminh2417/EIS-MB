@@ -3,9 +3,14 @@
 import { Dimensions, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Button, } from 'react-native-paper';
+import { Button } from 'react-native-paper';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { ROUTES } from '../../navigation/routes';
+import { useNavigation } from '@react-navigation/native';
 
+type LoginScreenNavigationProp = NativeStackNavigationProp<any, typeof ROUTES.LOGIN>;
 const LoginScreen = () => {
+    const navigation = useNavigation<LoginScreenNavigationProp>();
     const insets = useSafeAreaInsets();
     const screenWidth = Dimensions.get('window').width;
     const screenHeight = Dimensions.get('window').height;
@@ -28,7 +33,7 @@ const LoginScreen = () => {
             <View style={[styles.container, safePadding]}>
                 <View id="logo">
                     <Image
-                        source={require('../assets/images/logo-banner-new-hsv.png')}
+                        source={require('../../assets/images/logo-banner-new-hsv.png')}
                         style={styles.logo}
                         resizeMode="contain"
                     />
@@ -52,7 +57,9 @@ const LoginScreen = () => {
                             placeholderTextColor={'#999'}
                         />
                     </View>
-                    <Button mode="contained" style={{ marginTop: 20, backgroundColor: '#0089FD', borderRadius: 8 }} onPress={() => console.log('Pressed')}>LOGIN</Button>
+                    <Button mode="contained" style={{ marginTop: 20, backgroundColor: '#0089FD', borderRadius: 8 }} onPress={() => {
+                        navigation.navigate(ROUTES.GLOBAL_STATUS_TABS);
+                    }}>LOGIN</Button>
                 </View>
                 <View style={{ margin: '5%', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <TouchableOpacity style={{}}>
